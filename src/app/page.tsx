@@ -230,7 +230,7 @@ function DataManagementSection() {
           <Card className="p-6 bg-card">
             <CardHeader className="p-0 flex flex-row items-center gap-4">
               <div className="bg-primary/20 p-3 rounded-lg flex-shrink-0">
-                <Upload className="w-6 h-6 text-primary" />
+                <Download className="w-6 h-6 text-primary" />
               </div>
               <CardTitle className="text-xl font-semibold">Import Your Existing Collection</CardTitle>
             </CardHeader>
@@ -243,7 +243,7 @@ function DataManagementSection() {
           <Card className="p-6 bg-card">
             <CardHeader className="p-0 flex flex-row items-center gap-4">
               <div className="bg-primary/20 p-3 rounded-lg flex-shrink-0">
-                <Download className="w-6 h-6 text-primary" />
+                <Upload className="w-6 h-6 text-primary" />
               </div>
               <CardTitle className="text-xl font-semibold">Export for Backup & Portability</CardTitle>
             </CardHeader>
@@ -261,21 +261,51 @@ function DataManagementSection() {
 
 function ThemeSection() {
   return (
-    <section id="themes" className="w-full py-20 md:py-32 bg-secondary/50">
-      <div className="container px-4 md:px-6">
-        <div className="grid md:grid-cols-2 items-center gap-12">
+    <section id="themes" className="w-full py-20 md:py-32 bg-secondary/50" data-theme="dark">
+      <div className="container px-4 md:px-6 text-center">
+        <div className="max-w-3xl mx-auto">
           <div className="space-y-4">
-            <div className="inline-block bg-primary/20 p-3 rounded-lg">
-              <Palette className="w-8 h-8 text-primary" />
-            </div>
             <h2 className="font-headline text-3xl md:text-4xl font-bold">Curate Your Vibe</h2>
-            <p className="text-muted-foreground md:text-lg">          
-            Humidor Hub is designed to be a deeply personal experience, right down to its appearance. 
-            We believe your app should match your personal style and viewing environment. Choose from 
-            a curated collection of light and dark themes, each crafted to create a specific mood. 
-            The Dark Collection Perfect for low-light environments like your favorite cigar lounge or 
-            for users who prefer a bolder, modern aesthetic.
+            <p className="text-muted-foreground md:text-lg">
+              Humidor Hub is designed to be a deeply personal experience, right down to its appearance.
+              We believe your app should match your personal style and viewing environment. Choose from
+              a curated collection of light and dark themes, each crafted to create a specific mood.
+              The Dark Collection Perfect for low-light environments like your favorite cigar lounge or
+              for users who prefer a bolder, modern aesthetic.
             </p>
+
+            {/* Add Theme switcher to select between light and dark theme */}
+            <label className="flex cursor-pointer gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round">
+                <circle cx="12" cy="12" r="5" />
+                <path
+                  d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
+              </svg>
+              <input type="checkbox" value="synthwave" className="toggle theme-controller" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            </label>
+
+
           </div>
 
         </div>
@@ -290,9 +320,6 @@ function PilotProgramSection() {
       <div className="container px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-4">
-            <div className="inline-block bg-primary/20 p-3 rounded-lg">
-              <UserPlus className="w-8 h-8 text-primary" />
-            </div>
             <h2 className="font-headline text-3xl md:text-4xl font-bold">Join the Pilot Program</h2>
             <p className="text-muted-foreground md:text-lg">
               Be one of the first 100 testers to get exclusive access to Humidor Hub before the official launch. Your feedback will shape the future of the app, and as a thank you, you'll receive <strong>6 months of Premium for free.</strong>
@@ -366,7 +393,7 @@ function PricingSection() {
               <CardDescription className="text-muted-foreground mt-2">For the serious collector.</CardDescription>
             </CardHeader>
             <CardContent className="p-0 flex-grow">
-            <div className="text-4xl font-bold my-6">$4.99<span className="text-lg font-medium text-muted-foreground">/month</span></div>
+              <div className="text-4xl font-bold my-6">$29.99<span className="text-lg font-medium text-muted-foreground">/year</span></div>
               <ul className="space-y-3">
                 {premiumFeatures.map((feature, index) => (
                   <li key={index} className="flex items-center">
