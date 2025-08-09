@@ -4,10 +4,11 @@ import Footer from '@/components/layout/footer'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import InteractiveInput from '@/components/interactive-input'
-import { Check, Layers, Smartphone, Cloud, Star, Coffee, BarChart, Leaf, Globe, Zap, Shapes, Download, Upload } from 'lucide-react'
+import { Check, Layers, Smartphone, Cloud, Star, Coffee, BarChart, Leaf, Globe, Zap, Shapes, Download, Upload, Palette } from 'lucide-react'
 import AppleIcon from '@/components/apple-icon'
 import GooglePlayIcon from '@/components/google-play-icon'
 import RoxyIcon from '@/components/roxy-icon'
+import Image from 'next/image'
 
 function HeroSection() {
   return (
@@ -236,12 +237,70 @@ function DataManagementSection() {
   );
 }
 
+function ThemeSection() {
+  const darkThemes = [
+    { name: 'Humidor (Default)', description: 'A sophisticated palette of dark charcoal, wood grain textures, and warm bronze accents.', hint: 'cigar humidor' },
+    { name: 'Lounge (OLED)', description: 'A pure-black theme for discretion and comfort in dimly lit settings.', hint: 'dark lounge' },
+    { name: 'Maduro', description: 'Inspired by dark, oily cigar wrappers, with deep, rich browns and earthy tones.', hint: 'tobacco leaves' },
+  ];
+  const lightThemes = [
+    { name: 'Claro (Classic Light)', description: 'A clean and crisp theme with sharp, dark text on a bright white background.', hint: 'bright clean' },
+    { name: 'Parchment', description: 'A vintage aesthetic with a soft, off-white background reminiscent of aged paper.', hint: 'old paper' },
+  ]
+  return (
+    <section id="themes" className="w-full py-20 md:py-32 bg-secondary/50">
+      <div className="container px-4 md:px-6">
+        <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
+          <div className="inline-block bg-primary/20 p-3 rounded-lg">
+            <Palette className="w-8 h-8 text-primary" />
+          </div>
+          <h2 className="font-headline text-3xl md:text-4xl font-bold">Curate Your Vibe</h2>
+          <p className="text-muted-foreground md:text-lg">
+            Humidor Hub is designed to be a deeply personal experience. Choose from a curated collection of themes, each crafted to create a specific mood.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="space-y-8">
+            <h3 className="font-headline text-2xl font-bold text-center">The Dark Collection</h3>
+            <div className="grid gap-8">
+              {darkThemes.map(theme => (
+                <div key={theme.name} className="flex items-start gap-4">
+                  <Image src="https://placehold.co/100x100.png" alt={theme.name} width={100} height={100} className="rounded-lg" data-ai-hint={theme.hint} />
+                  <div>
+                    <h4 className="font-semibold text-lg">{theme.name}</h4>
+                    <p className="text-muted-foreground">{theme.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="space-y-8">
+            <h3 className="font-headline text-2xl font-bold text-center">The Light Collection</h3>
+            <div className="grid gap-8">
+              {lightThemes.map(theme => (
+                <div key={theme.name} className="flex items-start gap-4">
+                  <Image src="https://placehold.co/100x100.png" alt={theme.name} width={100} height={100} className="rounded-lg" data-ai-hint={theme.hint} />
+                  <div>
+                    <h4 className="font-semibold text-lg">{theme.name}</h4>
+                    <p className="text-muted-foreground">{theme.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function PricingSection() {
   const freeFeatures = ['Track up to 25 cigars', 'Basic search filters', 'Community access']
   const premiumFeatures = ["Roxy's AI Insights", 'Unlimited cigar tracking', 'Advanced search & analytics', 'Personalized recommendations', 'Export your collection', 'Priority support']
 
   return (
-    <section id="pricing" className="w-full py-20 md:py-32 bg-secondary/50">
+    <section id="pricing" className="w-full py-20 md:py-32 bg-background">
       <div className="container px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
           <h2 className="font-headline text-3xl md:text-4xl font-bold">
@@ -296,7 +355,7 @@ function PricingSection() {
 
 function CtaSection() {
   return (
-    <section id="download" className="w-full py-20 md:py-32 bg-background">
+    <section id="download" className="w-full py-20 md:py-32 bg-secondary/50">
       <div className="container px-4 md:px-6 text-center">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-headline text-3xl md:text-4xl font-bold">
@@ -337,6 +396,7 @@ export default function Home() {
         <BrowseBySection />
         <RoxySection />
         <DataManagementSection />
+        <ThemeSection />
         <PricingSection />
         <CtaSection />
       </main>

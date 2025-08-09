@@ -41,6 +41,9 @@ export default function Header() {
         <a href="#data" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
           Import/Export
         </a>
+        <a href="#themes" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+          Themes
+        </a>
         <a href="#pricing" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
           Pricing
         </a>
