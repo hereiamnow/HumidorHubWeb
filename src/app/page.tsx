@@ -78,7 +78,7 @@ function FeaturesSection() {
   ]
 
   return (
-    <section id="features" className="w-full py-20 md:py-32 bg-secondary/50">
+    <section id="features" className="w-full py-20 md:py-32 bg-pattern">
       <div className="container px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
           <h2 className="font-headline text-3xl md:text-4xl font-bold">
@@ -126,7 +126,7 @@ function BrowseBySection() {
     {
       icon: <Shapes className="w-10 h-10 text-primary" />,
       title: 'Browse by Shape (Vitola)',
-      description: "The size and shape of a cigar impacts its burn time and flavor. Ideal for when you know exactly how much time you have to enjoy a smoke.",
+      description: "The size and shape of a cigar impacts its burn time and a an PXDTzYgEM86xQ-s.p.3ce64794.woff2. Ideal for when you know exactly how much time you have to enjoy a smoke.",
     },
   ];
 
@@ -183,7 +183,7 @@ function RoxySection() {
     }
   ]
   return (
-    <section id="roxy" className="w-full py-20 md:py-32 bg-secondary/50">
+    <section id="roxy" className="w-full py-20 md:py-32 bg-pattern">
       <div className="container px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
@@ -267,7 +267,7 @@ function DataManagementSection() {
 
 function ThemeSection({ onThemeChange }: { onThemeChange: (theme: 'dark' | 'light') => void }) {
   return (
-    <section id="themes" className="w-full py-20 md:py-32 bg-secondary/50">
+    <section id="themes" className="w-full py-20 md:py-32 bg-pattern">
       <div className="container px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center">
           <div className="space-y-4 mb-12">
@@ -276,11 +276,8 @@ function ThemeSection({ onThemeChange }: { onThemeChange: (theme: 'dark' | 'ligh
               your app should match your personal style and viewing environment. Choose from a curated collection
               of light and dark themes, each crafted to create a specific mood.</p>
           </div>
-          <div id="pnlThemeSwap" className="mt-4 mb-4 flex flex-row items-center gap-2 text-left">
+          <div id="pnlThemeSwap" className="mt-4 mb-4 flex flex-row items-center justify-center gap-2 text-left">
             <ThemeSwap onThemeChange={onThemeChange} defaultChecked={true} />
-            <span className="text-muted-foreground text-base md:text-lg">
-              Your app should match your personal style. Choose from a curated collection of light and dark themes, or have it sync with your device.
-            </span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
             <div className="flex items-start gap-4">
@@ -350,7 +347,7 @@ function PilotProgramSection() {
   }, [state, toast]);
 
   return (
-    <section id="pilot" className="w-full py-20 md:py-32 bg-secondary/50">
+    <section id="pilot" className="w-full py-20 md:py-32 bg-background">
       <div className="container px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-4">
@@ -395,7 +392,7 @@ function PricingSection() {
   const premiumFeatures = ["Roxy's AI Insights", 'Unlimited cigar tracking', 'Advanced search & analytics', 'Personalized recommendations', 'Export your collection', 'Priority support']
 
   return (
-    <section id="pricing" className="w-full py-20 md:py-32">
+    <section id="pricing" className="w-full py-20 md:py-32 bg-pattern">
       <div className="container px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
           <h2 className="font-headline text-3xl md:text-4xl font-bold">
@@ -451,30 +448,30 @@ function PricingSection() {
 function CtaSection() {
   return (
     <section id="download" className="w-full py-20 md:py-32 bg-background">
-      <div className="container px-4 md:px-6 text-center">
-        <div className="max-w-3xl mx-auto">
+      <div className="container px-4 md:px-6">
+        <div className="max-w-3xl mx-auto text-center">
           <h2 className="font-headline text-3xl md:text-4xl font-bold">
             Take Your Collection With You
           </h2>
           <p className="text-muted-foreground md:text-lg mt-4 mb-8">
             Download the Humidor Hub app today and experience the future of cigar collection management.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="h-14 w-full sm:w-auto text-base bg-accent text-accent-foreground hover:bg-accent/90">
-              <AppleIcon className="w-6 h-6 mr-3" />
-              <div>
-                <div className="text-xs">Download on the</div>
-                <div className="text-xl font-semibold">App Store</div>
-              </div>
-            </Button>
-            <Button size="lg" className="h-14 w-full sm:w-auto text-base bg-accent text-accent-foreground hover:bg-accent/90">
-              <GooglePlayIcon className="w-6 h-6 mr-3" />
-              <div>
-                <div className="text-xs">GET IT ON</div>
-                <div className="text-xl font-semibold">Google Play</div>
-              </div>
-            </Button>
-          </div>
+        </div>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-lg mx-auto">
+          <Button size="lg" className="h-14 w-full sm:w-auto text-base bg-accent text-accent-foreground hover:bg-accent/90">
+            <AppleIcon className="w-6 h-6 mr-3" />
+            <div>
+              <div className="text-xs">Download on the</div>
+              <div className="text-xl font-semibold">App Store</div>
+            </div>
+          </Button>
+          <Button size="lg" className="h-14 w-full sm:w-auto text-base bg-accent text-accent-foreground hover:bg-accent/90">
+            <GooglePlayIcon className="w-6 h-6 mr-3" />
+            <div>
+              <div className="text-xs">GET IT ON</div>
+              <div className="text-xl font-semibold">Google Play</div>
+            </div>
+          </Button>
         </div>
       </div>
     </section>
