@@ -47,11 +47,11 @@ function FeaturesSection() {
       title: 'The Cigar Journal',
       description: 'Document every detail of your smoking experience. Log duration, ratings, nuanced tasting notes, and the perfect drink pairing.'
     },
-    {
-      icon: <Bluetooth className="w-10 h-10 text-primary" />,
-      title: 'Smart Sensor Integration',
-      description: 'Protect your investment with real-time climate monitoring. Seamlessly integrates with Govee Bluetooth hygrometers for live data.'
-    },
+    // {
+    //   icon: <Bluetooth className="w-10 h-10 text-primary" />,
+    //   title: 'Smart Sensor Integration',
+    //   description: 'Protect your investment with real-time climate monitoring. Seamlessly integrates with Govee Bluetooth hygrometers for live data.'
+    // },
     {
       icon: <AreaChart className="w-10 h-10 text-primary" />,
       title: 'Advanced Statistics',
