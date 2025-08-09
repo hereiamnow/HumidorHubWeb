@@ -4,7 +4,7 @@ import Footer from '@/components/layout/footer'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import InteractiveInput from '@/components/interactive-input'
-import { Check, Layers, Smartphone, Cloud, Star, Coffee, Wine, BarChart, Leaf, Globe, Zap, Shapes } from 'lucide-react'
+import { Check, Layers, Smartphone, Cloud, Star, Coffee, BarChart, Leaf, Globe, Zap, Shapes, Download, Upload } from 'lucide-react'
 import AppleIcon from '@/components/apple-icon'
 import GooglePlayIcon from '@/components/google-play-icon'
 import RoxyIcon from '@/components/roxy-icon'
@@ -191,12 +191,57 @@ function RoxySection() {
   )
 }
 
+function DataManagementSection() {
+  return (
+    <section id="data" className="w-full py-20 md:py-32">
+      <div className="container px-4 md:px-6">
+        <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold">
+            Seamless Data Management
+          </h2>
+          <p className="text-muted-foreground md:text-lg">
+            Your valuable collection data is always portable and easy to manage, whether you're just getting started or have been curating for years.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 gap-8 items-start">
+          <Card className="p-6 bg-card">
+            <CardHeader className="p-0 flex flex-row items-center gap-4">
+              <div className="bg-primary/20 p-3 rounded-lg flex-shrink-0">
+                <Upload className="w-6 h-6 text-primary" />
+              </div>
+              <CardTitle className="text-xl font-semibold">Import Your Existing Collection</CardTitle>
+            </CardHeader>
+            <CardContent className="p-0 mt-4">
+              <p className="text-muted-foreground">
+                Getting your collection into Humidor Hub is effortless. Prepare your data in a supported file format (like CSV) to migrate your entire inventory in a single step. It's the perfect tool for new users with established collections, saving hours of manual entry.
+              </p>
+            </CardContent>
+          </Card>
+          <Card className="p-6 bg-card">
+            <CardHeader className="p-0 flex flex-row items-center gap-4">
+              <div className="bg-primary/20 p-3 rounded-lg flex-shrink-0">
+                <Download className="w-6 h-6 text-primary" />
+              </div>
+              <CardTitle className="text-xl font-semibold">Export for Backup & Portability</CardTitle>
+            </CardHeader>
+            <CardContent className="p-0 mt-4">
+              <p className="text-muted-foreground">
+                Your collection data is yours. With a single tap, generate a complete backup of your virtual humidor. This provides peace of mind and ultimate data portability for custom analysis, insurance purposes, or simply for safekeeping.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function PricingSection() {
   const freeFeatures = ['Track up to 25 cigars', 'Basic search filters', 'Community access']
   const premiumFeatures = ["Roxy's AI Insights", 'Unlimited cigar tracking', 'Advanced search & analytics', 'Personalized recommendations', 'Export your collection', 'Priority support']
 
   return (
-    <section id="pricing" className="w-full py-20 md:py-32">
+    <section id="pricing" className="w-full py-20 md:py-32 bg-secondary/50">
       <div className="container px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
           <h2 className="font-headline text-3xl md:text-4xl font-bold">
@@ -251,7 +296,7 @@ function PricingSection() {
 
 function CtaSection() {
   return (
-    <section id="download" className="w-full py-20 md:py-32 bg-secondary/50">
+    <section id="download" className="w-full py-20 md:py-32 bg-background">
       <div className="container px-4 md:px-6 text-center">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-headline text-3xl md:text-4xl font-bold">
@@ -291,6 +336,7 @@ export default function Home() {
         <FeaturesSection />
         <BrowseBySection />
         <RoxySection />
+        <DataManagementSection />
         <PricingSection />
         <CtaSection />
       </main>
@@ -298,5 +344,3 @@ export default function Home() {
     </div>
   )
 }
-
-    

@@ -38,6 +38,9 @@ export default function Header() {
         <a href="#roxy" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
           Roxy's Corner
         </a>
+        <a href="#data" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+          Import/Export
+        </a>
         <a href="#pricing" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
           Pricing
         </a>
@@ -48,5 +51,3 @@ export default function Header() {
     </header>
   )
 }
-
-    
