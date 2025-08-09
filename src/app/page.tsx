@@ -4,9 +4,10 @@ import Footer from '@/components/layout/footer'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import InteractiveInput from '@/components/interactive-input'
-import { Check, Layers, Smartphone, Cloud } from 'lucide-react'
+import { Check, Layers, Smartphone, Cloud, Star, Coffee, Wine, BarChart } from 'lucide-react'
 import AppleIcon from '@/components/apple-icon'
 import GooglePlayIcon from '@/components/google-play-icon'
+import RoxyIcon from '@/components/roxy-icon'
 
 function HeroSection() {
   return (
@@ -76,12 +77,73 @@ function FeaturesSection() {
   )
 }
 
+function RoxySection() {
+  const roxyFeatures = [
+    {
+      icon: <Star className="w-5 h-5 text-accent" />,
+      title: 'Tasting Notes',
+      description: 'A breakdown of the flavor profile and aromas you can expect.'
+    },
+    {
+      icon: <Coffee className="w-5 h-5 text-accent" />,
+      title: 'Pairing Suggestions',
+      description: 'Recommendations for drinks that complement the cigar.'
+    },
+    {
+      icon: <BarChart className="w-5 h-5 text-accent" />,
+      title: 'Aging Potential',
+      description: 'Assessment of how the cigar is likely to develop over time.'
+    },
+    {
+      icon: <Layers className="w-5 h-5 text-accent" />,
+      title: 'Similar Smokes',
+      description: 'Recommendations for other cigars you might enjoy.'
+    }
+  ]
+  return (
+    <section id="roxy" className="w-full py-20 md:py-32">
+      <div className="container px-4 md:px-6">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="space-y-6">
+            <div className="flex items-center gap-4">
+              <RoxyIcon className="w-16 h-16 text-primary" />
+              <div>
+                <h2 className="font-headline text-3xl md:text-4xl font-bold">Roxy's Corner</h2>
+                <p className="text-primary text-xl font-semibold">Your Personal AI Tobacconist</p>
+              </div>
+            </div>
+            <p className="text-muted-foreground md:text-lg">
+              Roxy is the intelligent heart of the Humidor Hub app. Simply provide a cigar name, and Roxy's AI automatically populates essential details like wrapper, binder, filler, strength, and origin, saving you time.
+            </p>
+            <p className="text-muted-foreground md:text-lg">
+              Beyond data, Roxy provides expert insights in a dedicated panel on each cigar's detail screen to deepen your appreciation and guide your experience.
+            </p>
+          </div>
+          <div className="space-y-6">
+            {roxyFeatures.map((feature, index) => (
+              <div key={index} className="flex items-start gap-4">
+                <div className="bg-accent/20 p-2 rounded-full flex-shrink-0 mt-1">
+                  {feature.icon}
+                </div>
+                <div>
+                  <h3 className="font-semibold text-lg">{feature.title}</h3>
+                  <p className="text-muted-foreground">{feature.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function PricingSection() {
   const freeFeatures = ['Track up to 25 cigars', 'Basic search filters', 'Community access']
-  const premiumFeatures = ['Unlimited cigar tracking', 'Advanced search & analytics', 'Personalized recommendations', 'Export your collection', 'Priority support']
+  const premiumFeatures = ["Roxy's AI Insights", 'Unlimited cigar tracking', 'Advanced search & analytics', 'Personalized recommendations', 'Export your collection', 'Priority support']
 
   return (
-    <section id="pricing" className="w-full py-20 md:py-32">
+    <section id="pricing" className="w-full py-20 md:py-32 bg-secondary/50">
       <div className="container px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
           <h2 className="font-headline text-3xl md:text-4xl font-bold">
@@ -136,7 +198,7 @@ function PricingSection() {
 
 function CtaSection() {
   return (
-    <section id="download" className="w-full py-20 md:py-32 bg-secondary/50">
+    <section id="download" className="w-full py-20 md:py-32">
       <div className="container px-4 md:px-6 text-center">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-headline text-3xl md:text-4xl font-bold">
@@ -174,6 +236,7 @@ export default function Home() {
       <main className="flex-grow">
         <HeroSection />
         <FeaturesSection />
+        <RoxySection />
         <PricingSection />
         <CtaSection />
       </main>
