@@ -1,19 +1,22 @@
 
+
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useFormState, useFormStatus } from 'react-dom'
 import Header from '@/components/layout/header'
 import Footer from '@/components/layout/footer'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import InteractiveInput from '@/components/interactive-input'
-import { Check, Layers, Smartphone, Cloud, Star, Coffee, BarChart, Leaf, Globe, Zap, Shapes, Download, Upload, Palette, BookOpen, Warehouse, AreaChart, Bluetooth, UserPlus } from 'lucide-react'
+import { Check, Layers, Smartphone, Cloud, Star, Coffee, BarChart, Leaf, Globe, Zap, Shapes, Download, Upload, Warehouse, AreaChart, BookOpen } from 'lucide-react'
 import AppleIcon from '@/components/apple-icon'
 import GooglePlayIcon from '@/components/google-play-icon'
 import RoxyIcon from '@/components/roxy-icon'
-import Image from 'next/image'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import ThemeSwap from '@/components/theme-swap'
+import { submitPilotApplication } from './actions'
+import { useToast } from '@/hooks/use-toast'
 
 function HeroSection() {
   return (
@@ -273,7 +276,7 @@ function ThemeSection({ onThemeChange }: { onThemeChange: (theme: 'dark' | 'ligh
               Humidor Hub is designed to be a deeply personal experience, right down to its appearance.
               We believe your app should match your personal style and viewing environment. Choose from
               a curated collection of light and dark themes, each crafted to create a specific mood.
-              The Dark Collection <ThemeSwap onThemeChange={onThemeChange} defaultChecked={false} /> Perfect for low-light environments like your favorite cigar lounge or
+              The Dark Collection <ThemeSwap onThemeChange={onThemeChange} defaultChecked={true} /> Perfect for low-light environments like your favorite cigar lounge or
               for users who prefer a bolder, modern aesthetic.
             </p>
      
@@ -284,9 +287,40 @@ function ThemeSection({ onThemeChange }: { onThemeChange: (theme: 'dark' | 'ligh
   )
 }
 
+function SubmitButton() {
+    const { pending } = useFormStatus();
+    return (
+        <Button type="submit" className="w-full" disabled={pending}>
+            {pending ? 'Submitting...' : 'Submit Application'}
+        </Button>
+    )
+}
+
 function PilotProgramSection() {
+    const { toast } = useToast();
+    const [state, formAction] = useFormState(submitPilotApplication, {
+        message: '',
+        errors: undefined,
+        success: false,
+    });
+
+    useEffect(() => {
+        if (state.success) {
+            toast({
+                title: 'Success!',
+                description: state.message,
+            });
+        } else if (state.message && state.errors) {
+             toast({
+                variant: 'destructive',
+                title: 'Error',
+                description: state.message,
+            });
+        }
+    }, [state, toast]);
+
   return (
-    <section id="pilot" className="w-full py-20 md:py-32 bg-secondary/50">
+    <section id="pilot" className="w-full py-20 md:py-32 bg-background">
       <div className="container px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-4">
@@ -304,16 +338,19 @@ function PilotProgramSection() {
               <CardDescription>Fill out the form to join the waiting list.</CardDescription>
             </CardHeader>
             <CardContent>
-              <form className="space-y-4">
+              <form action={formAction} className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="name">Name</Label>
-                  <Input id="name" placeholder="Enter your name" />
+                  <Input id="name" name="name" placeholder="Enter your name" />
+                  {state.errors?.name && <p className="text-sm font-medium text-destructive">{state.errors.name}</p>}
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" placeholder="Enter your email" />
+                  <Input id="email" name="email" type="email" placeholder="Enter your email" />
+                   {state.errors?.email && <p className="text-sm font-medium text-destructive">{state.errors.email}</p>}
                 </div>
-                <Button type="submit" className="w-full">Submit Application</Button>
+                <SubmitButton />
+                 {state.message && !state.errors && !state.success && <p className="text-sm font-medium text-destructive">{state.message}</p>}
               </form>
             </CardContent>
           </Card>
@@ -328,7 +365,7 @@ function PricingSection() {
   const premiumFeatures = ["Roxy's AI Insights", 'Unlimited cigar tracking', 'Advanced search & analytics', 'Personalized recommendations', 'Export your collection', 'Priority support']
 
   return (
-    <section id="pricing" className="w-full py-20 md:py-32 bg-background">
+    <section id="pricing" className="w-full py-20 md:py-32 bg-secondary/50">
       <div className="container px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
           <h2 className="font-headline text-3xl md:text-4xl font-bold">
@@ -383,7 +420,7 @@ function PricingSection() {
 
 function CtaSection() {
   return (
-    <section id="download" className="w-full py-20 md:py-32 bg-secondary/50">
+    <section id="download" className="w-full py-20 md:py-32 bg-background">
       <div className="container px-4 md:px-6 text-center">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-headline text-3xl md:text-4xl font-bold">
