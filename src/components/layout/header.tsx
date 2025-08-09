@@ -32,6 +32,9 @@ export default function Header() {
         <a href="#features" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
           Features
         </a>
+        <a href="#browse" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+          Discover
+        </a>
         <a href="#roxy" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
           Roxy's Corner
         </a>
@@ -45,3 +48,5 @@ export default function Header() {
     </header>
   )
 }
+
+    

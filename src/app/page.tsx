@@ -4,7 +4,7 @@ import Footer from '@/components/layout/footer'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import InteractiveInput from '@/components/interactive-input'
-import { Check, Layers, Smartphone, Cloud, Star, Coffee, Wine, BarChart } from 'lucide-react'
+import { Check, Layers, Smartphone, Cloud, Star, Coffee, Wine, BarChart, Leaf, Globe, Zap, Shapes } from 'lucide-react'
 import AppleIcon from '@/components/apple-icon'
 import GooglePlayIcon from '@/components/google-play-icon'
 import RoxyIcon from '@/components/roxy-icon'
@@ -77,6 +77,59 @@ function FeaturesSection() {
   )
 }
 
+function BrowseBySection() {
+  const browseOptions = [
+    {
+      icon: <Globe className="w-10 h-10 text-primary" />,
+      title: 'Browse by Country',
+      description: "Take a journey through the world of tobacco. Perfect for comparing regional profiles or finding a cigar from your favorite tobacco-growing nation.",
+    },
+    {
+      icon: <Leaf className="w-10 h-10 text-primary" />,
+      title: 'Browse by Wrapper',
+      description: "The wrapper leaf defines a significant part of a cigar's flavor. Find all the cigars that match your craving, from a dark Maduro to a creamy Connecticut.",
+    },
+    {
+      icon: <Zap className="w-10 h-10 text-primary" />,
+      title: 'Browse by Strength',
+      description: "Find the right cigar for the right time of day. Easily select a lighter smoke for the morning or a powerful, complex cigar for the evening.",
+    },
+    {
+      icon: <Shapes className="w-10 h-10 text-primary" />,
+      title: 'Browse by Shape (Vitola)',
+      description: "The size and shape of a cigar impacts its burn time and flavor. Ideal for when you know exactly how much time you have to enjoy a smoke.",
+    },
+  ];
+
+  return (
+    <section id="browse" className="w-full py-20 md:py-32">
+      <div className="container px-4 md:px-6">
+        <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold">
+            Discover Your Collection
+          </h2>
+          <p className="text-muted-foreground md:text-lg">
+            Powerful new ways to explore and organize your cigars.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {browseOptions.map((option, index) => (
+            <Card key={index} className="flex flex-col items-center text-center p-6 bg-card hover:shadow-primary/20 hover:shadow-lg transition-shadow duration-300">
+              <div className="mb-4">{option.icon}</div>
+              <CardHeader className="p-0">
+                <CardTitle className="text-xl font-semibold">{option.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="p-0 mt-2">
+                <p className="text-muted-foreground">{option.description}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function RoxySection() {
   const roxyFeatures = [
     {
@@ -101,7 +154,7 @@ function RoxySection() {
     }
   ]
   return (
-    <section id="roxy" className="w-full py-20 md:py-32">
+    <section id="roxy" className="w-full py-20 md:py-32 bg-secondary/50">
       <div className="container px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
@@ -143,7 +196,7 @@ function PricingSection() {
   const premiumFeatures = ["Roxy's AI Insights", 'Unlimited cigar tracking', 'Advanced search & analytics', 'Personalized recommendations', 'Export your collection', 'Priority support']
 
   return (
-    <section id="pricing" className="w-full py-20 md:py-32 bg-secondary/50">
+    <section id="pricing" className="w-full py-20 md:py-32">
       <div className="container px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
           <h2 className="font-headline text-3xl md:text-4xl font-bold">
@@ -198,7 +251,7 @@ function PricingSection() {
 
 function CtaSection() {
   return (
-    <section id="download" className="w-full py-20 md:py-32">
+    <section id="download" className="w-full py-20 md:py-32 bg-secondary/50">
       <div className="container px-4 md:px-6 text-center">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-headline text-3xl md:text-4xl font-bold">
@@ -236,6 +289,7 @@ export default function Home() {
       <main className="flex-grow">
         <HeroSection />
         <FeaturesSection />
+        <BrowseBySection />
         <RoxySection />
         <PricingSection />
         <CtaSection />
@@ -244,3 +298,5 @@ export default function Home() {
     </div>
   )
 }
+
+    
