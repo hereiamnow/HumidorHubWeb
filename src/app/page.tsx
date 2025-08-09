@@ -4,7 +4,7 @@ import Footer from '@/components/layout/footer'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import InteractiveInput from '@/components/interactive-input'
-import { Check, Layers, Smartphone, Cloud, Star, Coffee, BarChart, Leaf, Globe, Zap, Shapes, Download, Upload, Palette } from 'lucide-react'
+import { Check, Layers, Smartphone, Cloud, Star, Coffee, BarChart, Leaf, Globe, Zap, Shapes, Download, Upload, Palette, BookOpen, Warehouse, AreaChart, Bluetooth } from 'lucide-react'
 import AppleIcon from '@/components/apple-icon'
 import GooglePlayIcon from '@/components/google-play-icon'
 import RoxyIcon from '@/components/roxy-icon'
@@ -38,6 +38,26 @@ function FeaturesSection() {
       description: 'Catalog your entire cigar collection. Track age, purchase date, and tasting notes with ease.',
     },
     {
+      icon: <Warehouse className="w-10 h-10 text-primary" />,
+      title: 'Multi-Humidor Management',
+      description: 'Effortlessly manage your collection across multiple humidors. Create, name, and organize separate virtual humidors within the app.'
+    },
+    {
+      icon: <BookOpen className="w-10 h-10 text-primary" />,
+      title: 'The Cigar Journal',
+      description: 'Document every detail of your smoking experience. Log duration, ratings, nuanced tasting notes, and the perfect drink pairing.'
+    },
+    {
+      icon: <Bluetooth className="w-10 h-10 text-primary" />,
+      title: 'Smart Sensor Integration',
+      description: 'Protect your investment with real-time climate monitoring. Seamlessly integrates with Govee Bluetooth hygrometers for live data.'
+    },
+    {
+      icon: <AreaChart className="w-10 h-10 text-primary" />,
+      title: 'Advanced Statistics',
+      description: 'Go beyond the numbers with insightful analytics. Visualize your collection with beautiful charts and graphs on your dashboard.'
+    },
+    {
       icon: <Smartphone className="w-10 h-10 text-primary" />,
       title: 'Mobile Access',
       description: 'Access your collection from anywhere with our beautifully designed mobile apps for iOS and Android.',
@@ -60,7 +80,7 @@ function FeaturesSection() {
             Everything you need to manage and enjoy your passion for cigars.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <Card key={index} className="flex flex-col items-center text-center p-6 bg-card hover:shadow-primary/20 hover:shadow-lg transition-shadow duration-300">
               <div className="mb-4">{feature.icon}</div>
@@ -238,55 +258,43 @@ function DataManagementSection() {
 }
 
 function ThemeSection() {
-  const darkThemes = [
-    { name: 'Humidor (Default)', description: 'A sophisticated palette of dark charcoal, wood grain textures, and warm bronze accents.', hint: 'cigar humidor' },
-    { name: 'Lounge (OLED)', description: 'A pure-black theme for discretion and comfort in dimly lit settings.', hint: 'dark lounge' },
-    { name: 'Maduro', description: 'Inspired by dark, oily cigar wrappers, with deep, rich browns and earthy tones.', hint: 'tobacco leaves' },
-  ];
-  const lightThemes = [
-    { name: 'Claro (Classic Light)', description: 'A clean and crisp theme with sharp, dark text on a bright white background.', hint: 'bright clean' },
-    { name: 'Parchment', description: 'A vintage aesthetic with a soft, off-white background reminiscent of aged paper.', hint: 'old paper' },
-  ]
   return (
     <section id="themes" className="w-full py-20 md:py-32 bg-secondary/50">
       <div className="container px-4 md:px-6">
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
-          <div className="inline-block bg-primary/20 p-3 rounded-lg">
-            <Palette className="w-8 h-8 text-primary" />
-          </div>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold">Curate Your Vibe</h2>
-          <p className="text-muted-foreground md:text-lg">
-            Humidor Hub is designed to be a deeply personal experience. Choose from a curated collection of themes, each crafted to create a specific mood.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          <div className="space-y-8">
-            <h3 className="font-headline text-2xl font-bold text-center">The Dark Collection</h3>
-            <div className="grid gap-8">
-              {darkThemes.map(theme => (
-                <div key={theme.name} className="flex items-start gap-4">
-                  <Image src="https://placehold.co/100x100.png" alt={theme.name} width={100} height={100} className="rounded-lg" data-ai-hint={theme.hint} />
-                  <div>
-                    <h4 className="font-semibold text-lg">{theme.name}</h4>
-                    <p className="text-muted-foreground">{theme.description}</p>
-                  </div>
-                </div>
-              ))}
+        <div className="grid md:grid-cols-2 items-center gap-12">
+          <div className="space-y-4">
+            <div className="inline-block bg-primary/20 p-3 rounded-lg">
+              <Palette className="w-8 h-8 text-primary" />
             </div>
+            <h2 className="font-headline text-3xl md:text-4xl font-bold">Curate Your Vibe</h2>
+            <p className="text-muted-foreground md:text-lg">          
+              Humidor Hub is designed to be a deeply personal experience. Choose from a curated collection of light and dark themes, each crafted to create a specific mood that matches your personal style and viewing environment.
+            </p>
           </div>
-          <div className="space-y-8">
-            <h3 className="font-headline text-2xl font-bold text-center">The Light Collection</h3>
-            <div className="grid gap-8">
-              {lightThemes.map(theme => (
-                <div key={theme.name} className="flex items-start gap-4">
-                  <Image src="https://placehold.co/100x100.png" alt={theme.name} width={100} height={100} className="rounded-lg" data-ai-hint={theme.hint} />
-                  <div>
-                    <h4 className="font-semibold text-lg">{theme.name}</h4>
-                    <p className="text-muted-foreground">{theme.description}</p>
-                  </div>
-                </div>
-              ))}
+          <div className="grid grid-cols-2 gap-4">
+            <div className="relative group">
+              <Image 
+                src="https://placehold.co/300x400.png" 
+                alt="Dark Theme Example" 
+                width={300} 
+                height={400} 
+                className="rounded-lg"
+                data-ai-hint="dark mode app" />
+              <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-lg">
+                <h3 className="text-white font-bold text-xl">Dark Themes</h3>
+              </div>
+            </div>
+            <div className="relative group">
+              <Image 
+                src="https://placehold.co/300x400.png" 
+                alt="Light Theme Example" 
+                width={300} 
+                height={400} 
+                className="rounded-lg"
+                data-ai-hint="light mode app" />
+              <div className="absolute inset-0 bg-white/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-lg">
+                <h3 className="text-black font-bold text-xl">Light Themes</h3>
+              </div>
             </div>
           </div>
         </div>
@@ -404,3 +412,5 @@ export default function Home() {
     </div>
   )
 }
+
+    
