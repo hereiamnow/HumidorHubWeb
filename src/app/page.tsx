@@ -276,10 +276,14 @@ function ThemeSection({ onThemeChange }: { onThemeChange: (theme: 'dark' | 'ligh
               Humidor Hub is designed to be a deeply personal experience, right down to its appearance.
               We believe your app should match your personal style and viewing environment. Choose from
               a curated collection of light and dark themes, each crafted to create a specific mood.
-              The Dark Collection <ThemeSwap onThemeChange={onThemeChange} defaultChecked={true} /> Perfect for low-light environments like your favorite cigar lounge or
-              for users who prefer a bolder, modern aesthetic.
             </p>
-     
+            <ThemeSwap onThemeChange={onThemeChange} defaultChecked={true} />
+            <p>{/*MOON ICON*/} Dark Collection Perfect for low-light environments like your favorite cigar lounge or
+              for users who prefer a bolder, modern aesthetic.</p>
+            <p>{/*SUN ICON*/} Light Collection  Ideal for bright environments like your patio, office, or cigar shop. Designed for clarity and warmth, it offers a clean, classic look that keeps your inventory front and center.</p>
+            <p>{/*GEAR ICON*/}Adaptive – Seamlessly follows your device’s theme settings, switching between Light and Dark modes as needed. It’s the perfect choice for users who value consistency, comfort, and effortless personalization.
+            </p>
+
           </div>
         </div>
       </div>
@@ -288,36 +292,36 @@ function ThemeSection({ onThemeChange }: { onThemeChange: (theme: 'dark' | 'ligh
 }
 
 function SubmitButton() {
-    const { pending } = useFormStatus();
-    return (
-        <Button type="submit" className="w-full" disabled={pending}>
-            {pending ? 'Submitting...' : 'Submit Application'}
-        </Button>
-    )
+  const { pending } = useFormStatus();
+  return (
+    <Button type="submit" className="w-full" disabled={pending}>
+      {pending ? 'Submitting...' : 'Submit Application'}
+    </Button>
+  )
 }
 
 function PilotProgramSection() {
-    const { toast } = useToast();
-    const [state, formAction] = useFormState(submitPilotApplication, {
-        message: '',
-        errors: undefined,
-        success: false,
-    });
+  const { toast } = useToast();
+  const [state, formAction] = useFormState(submitPilotApplication, {
+    message: '',
+    errors: undefined,
+    success: false,
+  });
 
-    useEffect(() => {
-        if (state.success) {
-            toast({
-                title: 'Success!',
-                description: state.message,
-            });
-        } else if (state.message && state.errors) {
-             toast({
-                variant: 'destructive',
-                title: 'Error',
-                description: state.message,
-            });
-        }
-    }, [state, toast]);
+  useEffect(() => {
+    if (state.success) {
+      toast({
+        title: 'Success!',
+        description: state.message,
+      });
+    } else if (state.message && state.errors) {
+      toast({
+        variant: 'destructive',
+        title: 'Error',
+        description: state.message,
+      });
+    }
+  }, [state, toast]);
 
   return (
     <section id="pilot" className="w-full py-20 md:py-32 bg-background">
@@ -347,10 +351,10 @@ function PilotProgramSection() {
                 <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
                   <Input id="email" name="email" type="email" placeholder="Enter your email" />
-                   {state.errors?.email && <p className="text-sm font-medium text-destructive">{state.errors.email}</p>}
+                  {state.errors?.email && <p className="text-sm font-medium text-destructive">{state.errors.email}</p>}
                 </div>
                 <SubmitButton />
-                 {state.message && !state.errors && !state.success && <p className="text-sm font-medium text-destructive">{state.message}</p>}
+                {state.message && !state.errors && !state.success && <p className="text-sm font-medium text-destructive">{state.message}</p>}
               </form>
             </CardContent>
           </Card>
