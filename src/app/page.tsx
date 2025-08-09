@@ -268,35 +268,14 @@ function ThemeSection() {
             </div>
             <h2 className="font-headline text-3xl md:text-4xl font-bold">Curate Your Vibe</h2>
             <p className="text-muted-foreground md:text-lg">          
-              Humidor Hub is designed to be a deeply personal experience. Choose from a curated collection of light and dark themes, each crafted to create a specific mood that matches your personal style and viewing environment.
+            Humidor Hub is designed to be a deeply personal experience, right down to its appearance. 
+            We believe your app should match your personal style and viewing environment. Choose from 
+            a curated collection of light and dark themes, each crafted to create a specific mood. 
+            The Dark Collection Perfect for low-light environments like your favorite cigar lounge or 
+            for users who prefer a bolder, modern aesthetic.
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="relative group">
-              <Image 
-                src="https://placehold.co/300x400.png" 
-                alt="Dark Theme Example" 
-                width={300} 
-                height={400} 
-                className="rounded-lg"
-                data-ai-hint="dark mode app" />
-              <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-lg">
-                <h3 className="text-white font-bold text-xl">Dark Themes</h3>
-              </div>
-            </div>
-            <div className="relative group">
-              <Image 
-                src="https://placehold.co/300x400.png" 
-                alt="Light Theme Example" 
-                width={300} 
-                height={400} 
-                className="rounded-lg"
-                data-ai-hint="light mode app" />
-              <div className="absolute inset-0 bg-white/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-lg">
-                <h3 className="text-black font-bold text-xl">Light Themes</h3>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
     </section>

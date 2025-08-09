@@ -49,6 +49,7 @@ export default function InteractiveInput() {
             <div className="flex-grow space-y-1.5">
                 <div className="h-4 bg-primary/50 rounded w-3/4"></div>
                 <div className="h-3 bg-muted-foreground/50 rounded w-1/2"></div>
+               
             </div>
         </div>
       </div>
