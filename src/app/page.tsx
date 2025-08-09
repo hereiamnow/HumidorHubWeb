@@ -272,42 +272,49 @@ function ThemeSection({ onThemeChange }: { onThemeChange: (theme: 'dark' | 'ligh
         <div className="max-w-3xl mx-auto text-center">
           <div className="space-y-4 mb-12">
             <h2 className="font-headline text-3xl md:text-4xl font-bold">Curate Your Vibe</h2>
-            <p className="text-muted-foreground md:text-lg">
+            <p>Humidor Hub is designed to be a deeply personal experience, right down to its appearance. We believe
+              your app should match your personal style and viewing environment. Choose from a curated collection
+              of light and dark themes, each crafted to create a specific mood.</p>
+          </div>
+          <div id="pnlThemeSwap" className="mt-4 mb-4 flex flex-row items-center gap-2 text-left">
+            <ThemeSwap onThemeChange={onThemeChange} defaultChecked={true} />
+            <span className="text-muted-foreground text-base md:text-lg">
               Your app should match your personal style. Choose from a curated collection of light and dark themes, or have it sync with your device.
-            </p>
+            </span>
+
           </div>
-          
-          <div className="mb-8">
-             <ThemeSwap onThemeChange={onThemeChange} defaultChecked={true} />
-          </div>
+
+
+
+
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
             <div className="flex items-start gap-4">
-                <div className="bg-primary/20 p-2 rounded-full flex-shrink-0 mt-1">
-                    <Moon className="w-6 h-6 text-primary"/>
-                </div>
-                <div>
-                    <h3 className="font-semibold text-lg">The Dark Collection</h3>
-                    <p className="text-muted-foreground text-sm">Perfect for low-light environments like your favorite cigar lounge or for users who prefer a bolder, modern aesthetic.</p>
-                </div>
+              <div className="bg-primary/20 p-2 rounded-full flex-shrink-0 mt-1">
+                <Moon className="w-6 h-6 text-primary" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg">The Dark Collection</h3>
+                <p className="text-muted-foreground text-sm">Perfect for low-light environments like your favorite cigar lounge or for users who prefer a bolder, modern aesthetic.</p>
+              </div>
             </div>
             <div className="flex items-start gap-4">
-                <div className="bg-primary/20 p-2 rounded-full flex-shrink-0 mt-1">
-                    <Sun className="w-6 h-6 text-primary"/>
-                </div>
-                <div>
-                    <h3 className="font-semibold text-lg">The Light Collection</h3>
-                    <p className="text-muted-foreground text-sm">Ideal for bright environments, designed for clarity and warmth, offering a clean, classic look.</p>
-                </div>
+              <div className="bg-primary/20 p-2 rounded-full flex-shrink-0 mt-1">
+                <Sun className="w-6 h-6 text-primary" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg">The Light Collection</h3>
+                <p className="text-muted-foreground text-sm">Ideal for bright environments, designed for clarity and warmth, offering a clean, classic look.</p>
+              </div>
             </div>
             <div className="flex items-start gap-4">
-                <div className="bg-primary/20 p-2 rounded-full flex-shrink-0 mt-1">
-                    <Cog className="w-6 h-6 text-primary"/>
-                </div>
-                <div>
-                    <h3 className="font-semibold text-lg">Adaptive</h3>
-                    <p className="text-muted-foreground text-sm">Seamlessly follows your device’s system settings, switching between Light and Dark modes automatically.</p>
-                </div>
+              <div className="bg-primary/20 p-2 rounded-full flex-shrink-0 mt-1">
+                <Cog className="w-6 h-6 text-primary" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg">Adaptive</h3>
+                <p className="text-muted-foreground text-sm">Seamlessly follows your device’s system settings, switching between Light and Dark modes automatically.</p>
+              </div>
             </div>
           </div>
         </div>
