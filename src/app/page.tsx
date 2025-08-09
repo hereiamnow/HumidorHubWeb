@@ -1,3 +1,183 @@
+'use client'
+import Header from '@/components/layout/header'
+import Footer from '@/components/layout/footer'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
+import InteractiveInput from '@/components/interactive-input'
+import { Check, Layers, Smartphone, Cloud } from 'lucide-react'
+import AppleIcon from '@/components/apple-icon'
+import GooglePlayIcon from '@/components/google-play-icon'
+
+function HeroSection() {
+  return (
+    <section className="w-full py-20 md:py-32 lg:py-40 text-center bg-background">
+      <div className="container px-4 md:px-6">
+        <div className="max-w-3xl mx-auto space-y-4">
+          <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
+            Elevate Your Cigar Experience
+          </h1>
+          <p className="text-lg text-muted-foreground md:text-xl">
+            Humidor Hub is the ultimate companion for cigar aficionados. Track your collection, discover new cigars, and connect with a community of enthusiasts.
+          </p>
+        </div>
+        <div className="mt-8 max-w-xl mx-auto">
+          <InteractiveInput />
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function FeaturesSection() {
+  const features = [
+    {
+      icon: <Layers className="w-10 h-10 text-primary" />,
+      title: 'Digital Humidor',
+      description: 'Catalog your entire cigar collection. Track age, purchase date, and tasting notes with ease.',
+    },
+    {
+      icon: <Smartphone className="w-10 h-10 text-primary" />,
+      title: 'Mobile Access',
+      description: 'Access your collection from anywhere with our beautifully designed mobile apps for iOS and Android.',
+    },
+    {
+      icon: <Cloud className="w-10 h-10 text-primary" />,
+      title: 'Cloud Sync',
+      description: 'Your collection is securely stored and synced across all your devices in real-time.',
+    },
+  ]
+
+  return (
+    <section id="features" className="w-full py-20 md:py-32 bg-secondary/50">
+      <div className="container px-4 md:px-6">
+        <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold">
+            Features for the Modern Aficionado
+          </h2>
+          <p className="text-muted-foreground md:text-lg">
+            Everything you need to manage and enjoy your passion for cigars.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <Card key={index} className="flex flex-col items-center text-center p-6 bg-card hover:shadow-primary/20 hover:shadow-lg transition-shadow duration-300">
+              <div className="mb-4">{feature.icon}</div>
+              <CardHeader className="p-0">
+                <CardTitle className="text-xl font-semibold">{feature.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="p-0 mt-2">
+                <p className="text-muted-foreground">{feature.description}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function PricingSection() {
+  const freeFeatures = ['Track up to 25 cigars', 'Basic search filters', 'Community access']
+  const premiumFeatures = ['Unlimited cigar tracking', 'Advanced search & analytics', 'Personalized recommendations', 'Export your collection', 'Priority support']
+
+  return (
+    <section id="pricing" className="w-full py-20 md:py-32">
+      <div className="container px-4 md:px-6">
+        <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold">
+            Find the Perfect Plan
+          </h2>
+          <p className="text-muted-foreground md:text-lg">
+            Start for free, or unlock powerful features with our Premium plan.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <Card className="p-8 bg-card flex flex-col">
+            <CardHeader className="p-0">
+              <CardTitle className="text-2xl font-bold">Free</CardTitle>
+              <CardDescription className="text-muted-foreground mt-2">For the casual enthusiast.</CardDescription>
+            </CardHeader>
+            <CardContent className="p-0 flex-grow">
+              <div className="text-4xl font-bold my-6">$0<span className="text-lg font-medium text-muted-foreground">/month</span></div>
+              <ul className="space-y-3">
+                {freeFeatures.map((feature, index) => (
+                  <li key={index} className="flex items-center">
+                    <Check className="w-5 h-5 text-green-500 mr-3" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+            <Button variant="outline" className="mt-8 w-full">Get Started</Button>
+          </Card>
+          <Card className="p-8 bg-card flex flex-col border-2 border-primary shadow-primary/20 shadow-xl">
+            <CardHeader className="p-0">
+              <CardTitle className="text-2xl font-bold">Premium</CardTitle>
+              <CardDescription className="text-muted-foreground mt-2">For the serious collector.</CardDescription>
+            </CardHeader>
+            <CardContent className="p-0 flex-grow">
+            <div className="text-4xl font-bold my-6">$4.99<span className="text-lg font-medium text-muted-foreground">/month</span></div>
+              <ul className="space-y-3">
+                {premiumFeatures.map((feature, index) => (
+                  <li key={index} className="flex items-center">
+                    <Check className="w-5 h-5 text-primary mr-3" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+            <Button className="mt-8 w-full bg-primary hover:bg-primary/90 text-primary-foreground">Go Premium</Button>
+          </Card>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function CtaSection() {
+  return (
+    <section id="download" className="w-full py-20 md:py-32 bg-secondary/50">
+      <div className="container px-4 md:px-6 text-center">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold">
+            Take Your Collection With You
+          </h2>
+          <p className="text-muted-foreground md:text-lg mt-4 mb-8">
+            Download the Humidor Hub app today and experience the future of cigar collection management.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button size="lg" className="h-14 w-full sm:w-auto text-base bg-accent text-accent-foreground hover:bg-accent/90">
+              <AppleIcon className="w-6 h-6 mr-3" />
+              <div>
+                <div className="text-xs">Download on the</div>
+                <div className="text-xl font-semibold">App Store</div>
+              </div>
+            </Button>
+            <Button size="lg" className="h-14 w-full sm:w-auto text-base bg-accent text-accent-foreground hover:bg-accent/90">
+              <GooglePlayIcon className="w-6 h-6 mr-3" />
+              <div>
+                <div className="text-xs">GET IT ON</div>
+                <div className="text-xl font-semibold">Google Play</div>
+              </div>
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 export default function Home() {
-  return <></>;
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex-grow">
+        <HeroSection />
+        <FeaturesSection />
+        <PricingSection />
+        <CtaSection />
+      </main>
+      <Footer />
+    </div>
+  )
 }
