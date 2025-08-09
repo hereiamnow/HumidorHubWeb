@@ -8,7 +8,7 @@ import Footer from '@/components/layout/footer'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import InteractiveInput from '@/components/interactive-input'
-import { Check, Layers, Smartphone, Cloud, Star, Coffee, BarChart, Leaf, Globe, Zap, Shapes, Download, Upload, Warehouse, AreaChart, BookOpen, Sun, Moon, Cog } from 'lucide-react'
+import { Check, Layers, Smartphone, Cloud, Star, Coffee, BarChart, Leaf, Globe, Zap, Shapes, Download, Upload, Warehouse, AreaChart, Sun, Moon, Cog } from 'lucide-react'
 import AppleIcon from '@/components/apple-icon'
 import GooglePlayIcon from '@/components/google-play-icon'
 import RoxyIcon from '@/components/roxy-icon'
@@ -51,7 +51,7 @@ function FeaturesSection() {
       description: 'Effortlessly manage your collection across multiple humidors. Create, name, and organize separate virtual humidors within the app.'
     },
     {
-      icon: <BookOpen className="w-10 h-10 text-primary" />,
+      icon: <Layers className="w-10 h-10 text-primary" />,
       title: 'The Cigar Journal',
       description: 'Document every detail of your smoking experience. Log duration, ratings, nuanced tasting notes, and the perfect drink pairing.'
     },
@@ -78,7 +78,7 @@ function FeaturesSection() {
   ]
 
   return (
-    <section id="features" className="w-full py-20 md:py-32 bg-pattern">
+    <section id="features" className="w-full py-20 md:py-32 bg-secondary/50">
       <div className="container px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
           <h2 className="font-headline text-3xl md:text-4xl font-bold">
@@ -183,7 +183,7 @@ function RoxySection() {
     }
   ]
   return (
-    <section id="roxy" className="w-full py-20 md:py-32 bg-pattern">
+    <section id="roxy" className="w-full py-20 md:py-32 bg-secondary/50">
       <div className="container px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
@@ -267,7 +267,7 @@ function DataManagementSection() {
 
 function ThemeSection({ onThemeChange }: { onThemeChange: (theme: 'dark' | 'light') => void }) {
   return (
-    <section id="themes" className="w-full py-20 md:py-32 bg-pattern">
+    <section id="themes" className="w-full py-20 md:py-32 bg-secondary/50">
       <div className="container px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center">
           <div className="space-y-4 mb-12">
@@ -323,76 +323,12 @@ function SubmitButton() {
   )
 }
 
-function PilotProgramSection() {
-  const { toast } = useToast();
-  const [state, formAction] = useFormState(submitPilotApplication, {
-    message: '',
-    errors: undefined,
-    success: false,
-  });
-
-  useEffect(() => {
-    if (state.success) {
-      toast({
-        title: 'Success!',
-        description: state.message,
-      });
-    } else if (state.message && state.errors) {
-      toast({
-        variant: 'destructive',
-        title: 'Error',
-        description: state.message,
-      });
-    }
-  }, [state, toast]);
-
-  return (
-    <section id="pilot" className="w-full py-20 md:py-32 bg-background">
-      <div className="container px-4 md:px-6">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-4">
-            <h2 className="font-headline text-3xl md:text-4xl font-bold">Join the Pilot Program</h2>
-            <p className="text-muted-foreground md:text-lg">
-              Be one of the first 100 testers to get exclusive access to Humidor Hub before the official launch. Your feedback will shape the future of the app, and as a thank you, you'll receive <strong>6 months of Premium for free.</strong>
-            </p>
-            <p className="text-sm text-muted-foreground">
-              Spots are limited. Apply now to secure your place.
-            </p>
-          </div>
-          <Card className="p-8">
-            <CardHeader>
-              <CardTitle>Apply Now</CardTitle>
-              <CardDescription>Fill out the form to join the waiting list.</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form action={formAction} className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Name</Label>
-                  <Input id="name" name="name" placeholder="Enter your name" />
-                  {state.errors?.name && <p className="text-sm font-medium text-destructive">{state.errors.name}</p>}
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input id="email" name="email" type="email" placeholder="Enter your email" />
-                  {state.errors?.email && <p className="text-sm font-medium text-destructive">{state.errors.email}</p>}
-                </div>
-                <SubmitButton />
-                {state.message && !state.errors && !state.success && <p className="text-sm font-medium text-destructive">{state.message}</p>}
-              </form>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
-    </section>
-  )
-}
-
 function PricingSection() {
   const freeFeatures = ['Track up to 25 cigars', 'Basic search filters', 'Community access']
   const premiumFeatures = ["Roxy's AI Insights", 'Unlimited cigar tracking', 'Advanced search & analytics', 'Personalized recommendations', 'Export your collection', 'Priority support']
 
   return (
-    <section id="pricing" className="w-full py-20 md:py-32 bg-pattern">
+    <section id="pricing" className="w-full py-20 md:py-32 bg-background">
       <div className="container px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
           <h2 className="font-headline text-3xl md:text-4xl font-bold">
@@ -445,6 +381,70 @@ function PricingSection() {
   )
 }
 
+function PilotProgramSection() {
+  const { toast } = useToast();
+  const [state, formAction] = useFormState(submitPilotApplication, {
+    message: '',
+    errors: undefined,
+    success: false,
+  });
+
+  useEffect(() => {
+    if (state.success) {
+      toast({
+        title: 'Success!',
+        description: state.message,
+      });
+    } else if (state.message && state.errors) {
+      toast({
+        variant: 'destructive',
+        title: 'Error',
+        description: state.message,
+      });
+    }
+  }, [state, toast]);
+
+  return (
+    <section id="pilot" className="w-full py-20 md:py-32 bg-secondary/50">
+      <div className="container px-4 md:px-6">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-4">
+            <h2 className="font-headline text-3xl md:text-4xl font-bold">Join the Pilot Program</h2>
+            <p className="text-muted-foreground md:text-lg">
+              Be one of the first 100 testers to get exclusive access to Humidor Hub before the official launch. Your feedback will shape the future of the app, and as a thank you, you'll receive <strong>6 months of Premium for free.</strong>
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Spots are limited. Apply now to secure your place.
+            </p>
+          </div>
+          <Card className="p-8">
+            <CardHeader>
+              <CardTitle>Apply Now</CardTitle>
+              <CardDescription>Fill out the form to join the waiting list.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <form action={formAction} className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Name</Label>
+                  <Input id="name" name="name" placeholder="Enter your name" />
+                  {state.errors?.name && <p className="text-sm font-medium text-destructive">{state.errors.name}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email</Label>
+                  <Input id="email" name="email" type="email" placeholder="Enter your email" />
+                  {state.errors?.email && <p className="text-sm font-medium text-destructive">{state.errors.email}</p>}
+                </div>
+                <SubmitButton />
+                {state.message && !state.errors && !state.success && <p className="text-sm font-medium text-destructive">{state.message}</p>}
+              </form>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function CtaSection() {
   return (
     <section id="download" className="w-full py-20 md:py-32 bg-background">
@@ -456,22 +456,22 @@ function CtaSection() {
           <p className="text-muted-foreground md:text-lg mt-4 mb-8">
             Download the Humidor Hub app today and experience the future of cigar collection management.
           </p>
-        </div>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-lg mx-auto">
-          <Button size="lg" className="h-14 w-full sm:w-auto text-base bg-accent text-accent-foreground hover:bg-accent/90">
-            <AppleIcon className="w-6 h-6 mr-3" />
-            <div>
-              <div className="text-xs">Download on the</div>
-              <div className="text-xl font-semibold">App Store</div>
-            </div>
-          </Button>
-          <Button size="lg" className="h-14 w-full sm:w-auto text-base bg-accent text-accent-foreground hover:bg-accent/90">
-            <GooglePlayIcon className="w-6 h-6 mr-3" />
-            <div>
-              <div className="text-xs">GET IT ON</div>
-              <div className="text-xl font-semibold">Google Play</div>
-            </div>
-          </Button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button size="lg" className="h-14 w-full sm:w-auto text-base bg-accent text-accent-foreground hover:bg-accent/90">
+              <AppleIcon className="w-6 h-6 mr-3" />
+              <div>
+                <div className="text-xs">Download on the</div>
+                <div className="text-xl font-semibold">App Store</div>
+              </div>
+            </Button>
+            <Button size="lg" className="h-14 w-full sm:w-auto text-base bg-accent text-accent-foreground hover:bg-accent/90">
+              <GooglePlayIcon className="w-6 h-6 mr-3" />
+              <div>
+                <div className="text-xs">GET IT ON</div>
+                <div className="text-xl font-semibold">Google Play</div>
+              </div>
+            </Button>
+          </div>
         </div>
       </div>
     </section>
@@ -500,8 +500,8 @@ export default function Home() {
         <RoxySection />
         <DataManagementSection />
         <ThemeSection onThemeChange={setTheme} />
-        <PricingSection />
         <PilotProgramSection />
+        <PricingSection />
         <CtaSection />
       </main>
       <Footer />
