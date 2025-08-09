@@ -4,11 +4,13 @@ import Footer from '@/components/layout/footer'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import InteractiveInput from '@/components/interactive-input'
-import { Check, Layers, Smartphone, Cloud, Star, Coffee, BarChart, Leaf, Globe, Zap, Shapes, Download, Upload, Palette, BookOpen, Warehouse, AreaChart, Bluetooth } from 'lucide-react'
+import { Check, Layers, Smartphone, Cloud, Star, Coffee, BarChart, Leaf, Globe, Zap, Shapes, Download, Upload, Palette, BookOpen, Warehouse, AreaChart, Bluetooth, UserPlus } from 'lucide-react'
 import AppleIcon from '@/components/apple-icon'
 import GooglePlayIcon from '@/components/google-play-icon'
 import RoxyIcon from '@/components/roxy-icon'
 import Image from 'next/image'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 
 function HeroSection() {
   return (
@@ -282,6 +284,48 @@ function ThemeSection() {
   )
 }
 
+function PilotProgramSection() {
+  return (
+    <section id="pilot" className="w-full py-20 md:py-32 bg-secondary/50">
+      <div className="container px-4 md:px-6">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-4">
+            <div className="inline-block bg-primary/20 p-3 rounded-lg">
+              <UserPlus className="w-8 h-8 text-primary" />
+            </div>
+            <h2 className="font-headline text-3xl md:text-4xl font-bold">Join the Pilot Program</h2>
+            <p className="text-muted-foreground md:text-lg">
+              Be one of the first 100 testers to get exclusive access to Humidor Hub before the official launch. Your feedback will shape the future of the app, and as a thank you, you'll receive <strong>6 months of Premium for free.</strong>
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Spots are limited. Apply now to secure your place.
+            </p>
+          </div>
+          <Card className="p-8">
+            <CardHeader>
+              <CardTitle>Apply Now</CardTitle>
+              <CardDescription>Fill out the form to join the waiting list.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <form className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Name</Label>
+                  <Input id="name" placeholder="Enter your name" />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email</Label>
+                  <Input id="email" type="email" placeholder="Enter your email" />
+                </div>
+                <Button type="submit" className="w-full">Submit Application</Button>
+              </form>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function PricingSection() {
   const freeFeatures = ['Track up to 25 cigars', 'Basic search filters', 'Community access']
   const premiumFeatures = ["Roxy's AI Insights", 'Unlimited cigar tracking', 'Advanced search & analytics', 'Personalized recommendations', 'Export your collection', 'Priority support']
@@ -384,6 +428,7 @@ export default function Home() {
         <RoxySection />
         <DataManagementSection />
         <ThemeSection />
+        <PilotProgramSection />
         <PricingSection />
         <CtaSection />
       </main>
@@ -391,5 +436,3 @@ export default function Home() {
     </div>
   )
 }
-
-    
