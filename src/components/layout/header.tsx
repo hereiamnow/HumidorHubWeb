@@ -44,11 +44,12 @@ export default function Header() {
         <a href="#themes" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
           Themes
         </a>
-        <a href="#pilot" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-          Pilot Program
-        </a>
+
         <a href="#pricing" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
           Pricing
+        </a>
+        <a href="#pilot" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+          Pilot Program
         </a>
       </nav>
       <a href="#download">

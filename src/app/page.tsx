@@ -350,7 +350,7 @@ function PilotProgramSection() {
   }, [state, toast]);
 
   return (
-    <section id="pilot" className="w-full py-20 md:py-32 bg-background">
+    <section id="pilot" className="w-full py-20 md:py-32 bg-secondary/50">
       <div className="container px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-4">
@@ -395,7 +395,7 @@ function PricingSection() {
   const premiumFeatures = ["Roxy's AI Insights", 'Unlimited cigar tracking', 'Advanced search & analytics', 'Personalized recommendations', 'Export your collection', 'Priority support']
 
   return (
-    <section id="pricing" className="w-full py-20 md:py-32 bg-secondary/50">
+    <section id="pricing" className="w-full py-20 md:py-32">
       <div className="container px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
           <h2 className="font-headline text-3xl md:text-4xl font-bold">
