@@ -1,4 +1,5 @@
 'use client'
+import { useState } from 'react'
 import Header from '@/components/layout/header'
 import Footer from '@/components/layout/footer'
 import { Button } from '@/components/ui/button'
@@ -259,9 +260,9 @@ function DataManagementSection() {
   );
 }
 
-function ThemeSection() {
+function ThemeSection({ onThemeChange }: { onThemeChange: (theme: 'dark' | 'light') => void }) {
   return (
-    <section id="themes" className="w-full py-20 md:py-32 bg-secondary/50" data-theme="dark">
+    <section id="themes" className="w-full py-20 md:py-32 bg-secondary/50">
       <div className="container px-4 md:px-6 text-center">
         <div className="max-w-3xl mx-auto">
           <div className="space-y-4">
@@ -274,8 +275,7 @@ function ThemeSection() {
               for users who prefer a bolder, modern aesthetic.
             </p>
 
-            {/* Add Theme switcher to select between light and dark theme */}
-            <label className="flex cursor-pointer gap-2">
+            <label className="flex cursor-pointer gap-2 justify-center items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -290,7 +290,12 @@ function ThemeSection() {
                 <path
                   d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
               </svg>
-              <input type="checkbox" value="synthwave" className="toggle theme-controller" />
+              <input 
+                type="checkbox" 
+                className="toggle theme-controller" 
+                onChange={(e) => onThemeChange(e.target.checked ? 'dark' : 'light')}
+                defaultChecked={true}
+              />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -304,10 +309,7 @@ function ThemeSection() {
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
               </svg>
             </label>
-
-
           </div>
-
         </div>
       </div>
     </section>
@@ -445,8 +447,10 @@ function CtaSection() {
 }
 
 export default function Home() {
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen" data-theme={theme}>
       <Header />
       <main className="flex-grow">
         <HeroSection />
@@ -454,7 +458,7 @@ export default function Home() {
         <BrowseBySection />
         <RoxySection />
         <DataManagementSection />
-        <ThemeSection />
+        <ThemeSection onThemeChange={setTheme} />
         <PilotProgramSection />
         <PricingSection />
         <CtaSection />
