@@ -272,7 +272,7 @@ function ThemeSection({ onThemeChange }: { onThemeChange: (theme: 'dark' | 'ligh
         <div className="max-w-3xl mx-auto text-center">
           <div className="space-y-4 mb-12">
             <h2 className="font-headline text-3xl md:text-4xl font-bold">Curate Your Vibe</h2>
-            <p>Humidor Hub is designed to be a deeply personal experience, right down to its appearance. We believe
+            <p className="text-muted-foreground">Humidor Hub is designed to be a deeply personal experience, right down to its appearance. We believe
               your app should match your personal style and viewing environment. Choose from a curated collection
               of light and dark themes, each crafted to create a specific mood.</p>
           </div>
@@ -490,8 +490,17 @@ function CtaSection() {
 export default function Home() {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
 
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    if(theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [theme]);
+
   return (
-    <div className="flex flex-col min-h-screen" data-theme={theme}>
+    <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow">
         <HeroSection />
