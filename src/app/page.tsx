@@ -281,13 +281,7 @@ function ThemeSection({ onThemeChange }: { onThemeChange: (theme: 'dark' | 'ligh
             <span className="text-muted-foreground text-base md:text-lg">
               Your app should match your personal style. Choose from a curated collection of light and dark themes, or have it sync with your device.
             </span>
-
           </div>
-
-
-
-
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
             <div className="flex items-start gap-4">
               <div className="bg-primary/20 p-2 rounded-full flex-shrink-0 mt-1">
@@ -509,8 +503,8 @@ export default function Home() {
         <RoxySection />
         <DataManagementSection />
         <ThemeSection onThemeChange={setTheme} />
-        <PilotProgramSection />
         <PricingSection />
+        <PilotProgramSection />
         <CtaSection />
       </main>
       <Footer />
