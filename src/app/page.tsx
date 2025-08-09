@@ -273,12 +273,10 @@ function ThemeSection({ onThemeChange }: { onThemeChange: (theme: 'dark' | 'ligh
               Humidor Hub is designed to be a deeply personal experience, right down to its appearance.
               We believe your app should match your personal style and viewing environment. Choose from
               a curated collection of light and dark themes, each crafted to create a specific mood.
-              The Dark Collection Perfect for low-light environments like your favorite cigar lounge or
+              The Dark Collection <ThemeSwap onThemeChange={onThemeChange} defaultChecked={false} /> Perfect for low-light environments like your favorite cigar lounge or
               for users who prefer a bolder, modern aesthetic.
             </p>
-            <div className="flex justify-center">
-              <ThemeSwap onThemeChange={onThemeChange} defaultChecked={true} />
-            </div>
+     
           </div>
         </div>
       </div>
