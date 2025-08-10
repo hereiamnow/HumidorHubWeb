@@ -3,6 +3,7 @@
 import { z } from 'zod';
 import { db } from '@/lib/firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { sendThankYouEmail } from '@/lib/send-email';
 
 const PilotApplicantSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -41,17 +42,12 @@ export async function submitPilotApplication(prevState: any, formData: FormData)
     // TODO: Implement actual email sending logic here
     // e.g., using a service like Resend, SendGrid, or Nodemailer.
 
-    // 3. Stub for sending thank you email to the user
-    console.log(`--- STUB: Sending thank you email to user (${email}) ---`);
-    console.log(`Subject: Thank you for joining the Humidor Hub Pilot Program!`);
-    console.log(`Hi ${name},`);
-    console.log(`Thank you for your interest. We've received your application and will be in touch if you're selected.`);
-    console.log(`----------------------------------------------------------`);
-    // TODO: Implement actual email sending logic here
+    // 3. Send thank you email to the user
+    await sendThankYouEmail({ name, email });
 
     return {
-        success: true,
-        message: 'Thank you! Your application has been submitted.',
+      success: true,
+      message: 'Thank you! Your application has been submitted.',
     }
   } catch (error) {
     console.error('Error submitting application:', error);

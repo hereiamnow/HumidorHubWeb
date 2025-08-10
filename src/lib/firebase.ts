@@ -5,12 +5,12 @@ import { getFirestore } from "firebase/firestore";
 // Your web app's Firebase configuration
 // IMPORTANT: Replace with your actual Firebase project configuration
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyDqql-BH3L9j-klFOUBSlEbUx84wFK02sg",
+  authDomain: "humidor-hub-web.firebaseapp.com",
+  projectId: "humidor-hub-web",
+  storageBucket: "humidor-hub-web.firebasestorage.app",
+  messagingSenderId: "619936602315",
+  appId: "1:619936602315:web:ac5abd1d479f5eecbda34e"
 };
 
 // Initialize Firebase
