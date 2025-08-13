@@ -11,7 +11,6 @@ export const metadata: Metadata = {
   creator: 'Shawn Miller (hereiamnow@gmail.com)',
   publisher: 'Shawn Miller (hereiamnow@gmail.com)',
   robots: 'index, follow',
-  viewport: 'width=device-width, initial-scale=1',
   // Add Open Graph and Twitter metadata
   openGraph: {
     title: 'Humidor Hub',
