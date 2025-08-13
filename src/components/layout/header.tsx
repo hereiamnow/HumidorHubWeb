@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import CigarLogo from '@/components/cigar-logo'
+import RoxyLogoSVG from '@/components/roxy-logo'
 import { cn } from '@/lib/utils'
 
 export default function Header() {
@@ -25,7 +25,7 @@ export default function Header() {
       )}
     >
       <Link href="/" className="flex items-center gap-2">
-        <CigarLogo className="h-8 w-8 text-primary" />
+        <RoxyLogoSVG className="h-8 w-8 text-primary" />
         <span className="font-headline text-xl font-bold text-foreground">Humidor Hub</span>
       </Link>
       <nav className="hidden md:flex items-center gap-6">
@@ -39,7 +39,7 @@ export default function Header() {
           Roxy's Corner
         </a>
         <a href="#data" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-          Import/Export
+          Data Management
         </a>
         <a href="#themes" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
           Themes
@@ -52,9 +52,9 @@ export default function Header() {
           Pilot Program
         </a>
       </nav>
-      <a href="#download">
-        <Button>Download App</Button>
-      </a>
+
+      <span className="inline-flex items-center rounded-md bg-red-400/10 px-2 py-1 text-xs font-medium text-red-400 inset-ring inset-ring-red-400/20">ALPHA v0.0.1.0</span>
+
     </header>
   )
 }
