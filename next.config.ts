@@ -1,18 +1,20 @@
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
+  distDir: 'build',
+
   /* config options here */
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: false,
   },
   images: {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'placehold.co',
+        hostname: 'humidorhub.io',
         port: '',
         pathname: '/**',
       },
