@@ -1,5 +1,5 @@
 {
-  "name": "humidor-hub-web",
+  "name": "humidor-hub",
   "version": "0.1.0",
   "private": true,
   "scripts": {
